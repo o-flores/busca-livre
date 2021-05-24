@@ -15,9 +15,6 @@ class SearchBar extends React.Component {
         <button data-testid="query-button" type="button" onClick={ onClick }>
           Pesquisar
         </button>
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
-import CartButton from '../components/CartButton';
 import * as api from '../services/api';
 import ProductList from '../components/ProductList';
 
@@ -52,7 +51,6 @@ class Home extends React.Component {
         <Categories onClick={ this.handleRadio } />
         { loading && '...carregando' }
         <ProductList products={ products } />
-        <CartButton />
       </>
     );
   }

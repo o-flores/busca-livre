@@ -40,6 +40,7 @@ class Categories extends React.Component {
               />
               {category.name}
             </li>))}
+            <br></br>
         </ol>
       </div>
     );
