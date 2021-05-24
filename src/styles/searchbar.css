@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+#search-div {
+  border: 1px solid black;
+  width: fit-content;
+  display: flex;
+}
+
+input {
+  padding: 0.8rem 0.2rem;
+  border: none;
+}
+
+.search-button {
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+  background-color: #e47911;
+  border: none;
+  cursor: pointer;
+}
