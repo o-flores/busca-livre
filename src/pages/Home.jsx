@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
+import Loading from '../components/Loading';
 import * as api from '../services/api';
 import ProductList from '../components/ProductList';
 
@@ -49,7 +50,7 @@ class Home extends React.Component {
           onChange={ this.handleOnChange }
         />
         <Categories onClick={ this.handleRadio } />
-        { loading && '...carregando' }
+        { loading && <Loading /> }
         <ProductList products={ products } />
       </>
     );

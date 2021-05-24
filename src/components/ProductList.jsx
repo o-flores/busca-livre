@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import AddToCart from './AddToCart';
 import '../styles/products.css';
 
 class ProductList extends React.Component {
@@ -12,21 +11,24 @@ class ProductList extends React.Component {
     return (
       <div className="products-container">
         { products.map((product) => (
-          <div className="product" key={ product.id }>
-            <img src={ product.thumbnail } alt={ product.title } />
-            <p className='title'>{ product.title }</p>
-            <p className='price'>{`${ product.price } R$`}</p>
+          <div className="product" key={product.id}>
             <Link
               className='details'
-              data-testid="product-detail-link"
-              to={ {
+              to={{
                 pathname: `/produto/${product.id}`,
                 state: { product },
-              } }
-            >
-              Saiba mais
+              }}>
+              <img src={product.thumbnail} alt={product.title} />
             </Link>
-            <AddToCart product={ product } testId="product-add-to-cart" />
+            <Link
+              className='details'
+              to={{
+                pathname: `/produto/${product.id}`,
+                state: { product },
+              }}>
+              <p className='title'>{product.title}</p>
+            </Link>
+            <p className='price'>{`${product.price} R$`}</p>
           </div>
         ))}
       </div>

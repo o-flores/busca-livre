@@ -17,10 +17,12 @@
 .product img {
   width: 10rem;
   margin-bottom: 0.3rem;
+  transition: box-shadow .3s;
 }
 
 .product .title {
   margin-bottom: 0.3rem;
+  text-align: center;
 }
 
 .product .price {
@@ -32,3 +34,11 @@
   color: black;
   margin-bottom: 0.3rem;
 }
+
+.product a:link {
+  text-decoration: none;
+}
+
+.product:hover {
+  box-shadow: 0 0 .8rem rgba(33, 33, 33, .2);
+} 
