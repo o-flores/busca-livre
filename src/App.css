@@ -2,7 +2,8 @@
   text-align: center;
 }
 
-.categories-list {
-  list-style-type: none;
-  text-align: left;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

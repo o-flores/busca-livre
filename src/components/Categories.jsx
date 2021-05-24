@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../services/api';
+import '../styles/categories.css'
 
 class Categories extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class Categories extends React.Component {
     return (
       <div>
         <ol className="categories-list">
+          <h2>Categorias</h2>
           {categories.map((category) => (
             <li key={ category.id }>
               <input

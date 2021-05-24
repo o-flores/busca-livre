@@ -1,0 +1,16 @@
+.categories-list {
+  position: fixed;
+  list-style-type: none;
+  text-align: left;
+  border-right: 1px solid #808080;
+  padding-right: 1rem;
+  margin: 1rem 0 0 1.5rem;
+}
+
+.categories-list h2 {
+  margin-bottom: 0.5rem;
+}
+
+.categories-list li {
+  margin-top: 0.3rem;
+}
