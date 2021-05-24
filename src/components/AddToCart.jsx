@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as storage from '../services/localStorage';
+import '../styles/addtocart.css'
 
 class AddToCart extends Component {
   handleLocalStorage = () => {
