@@ -12,11 +12,10 @@ class AddToCart extends Component {
   render() {
     const { testId } = this.props;
     return (
-      <div>
+      <div className='button-container'>
         <button
           type="button"
-          data-testid={ testId }
-          name="button-add-to-cart"
+          id="button-add-to-cart"
           onClick={ this.handleLocalStorage }
         >
           Adicione ao carrinho

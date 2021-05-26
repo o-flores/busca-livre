@@ -1,0 +1,35 @@
+.product-card {
+  padding-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.photo-container {
+  margin: 0 5rem;
+}
+
+.photo-container img {
+  width: 25rem;
+}
+
+.product-info-container {
+  margin-right: 2rem;
+  max-width: 40%;
+}
+
+.product-info-container h1 {
+  margin-bottom: 0.5rem;
+}
+
+.product-info-container h2 {
+  margin-bottom: 0.5rem;
+}
+
+.product-info-container ul {
+  margin-left: 1rem;
+}
+
+.product-info-container li {
+  margin-bottom: 0.25rem;
+}
