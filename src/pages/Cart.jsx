@@ -52,7 +52,7 @@ class Cart extends React.Component {
             onChange={ this.handleOnChange }
           />
         )) }
-        <p>{`Preço total: ${totalPrice}`}</p>
+        {products.length > 0 && <p>{`Preço total: ${totalPrice} R$`}</p>}
       </div>
     );
   }

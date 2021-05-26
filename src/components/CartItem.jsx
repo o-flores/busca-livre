@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/cartItem.css'
+import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -41,25 +43,29 @@ class CartItem extends React.Component {
     const { title, price, thumbnail, id } = product;
     const { quantity } = this.state;
     return (
-      <div>
-        <img src={ thumbnail } alt={ title } />
-        <p data-testid="shopping-cart-product-name">{ title }</p>
-        <button
-          onClick={ () => this.handleOnclick('sub', id) }
-          data-testid="product-decrease-quantity"
-          type="button"
-        >
-          -
-        </button>
-        <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
-        <button
-          onClick={ () => this.handleOnclick('add', id) }
-          data-testid="product-increase-quantity"
-          type="button"
-        >
-          +
-        </button>
-        <p>{ price }</p>
+      <div className='cart-item-container'>
+        <img src={thumbnail} alt={title} />
+        <div className='cart-item-info'>
+          <p>{title}</p>
+          <p>{`${price} R$`}</p>
+          <div className='cart-item-quantity'>
+            <FaMinus
+              className='button-quantity'
+              onClick={() => this.handleOnclick('sub', id)}
+              type="button"
+            >
+            </FaMinus>
+            <p>{quantity}</p>
+            <FaPlus
+              className='button-quantity'
+              onClick={() => this.handleOnclick('add', id)}
+              type="button"
+            >
+            </FaPlus>
+          </div>
+          <FaTrash />
+        </div>
+        
       </div>
 
     );

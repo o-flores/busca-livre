@@ -10,7 +10,6 @@ class AddToCart extends Component {
   }
 
   render() {
-    const { testId } = this.props;
     return (
       <div className='button-container'>
         <button

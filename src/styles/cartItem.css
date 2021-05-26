@@ -1,0 +1,26 @@
+.cart-item-container {
+  display: flex;
+  margin: 2rem;
+}
+
+.cart-item-info{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.cart-item-info p{
+ margin-bottom: 0.3rem ;
+}
+
+.cart-item-quantity {
+  display: flex;
+  justify-content: left;
+  margin-top: 0.5rem ;
+  align-items: center;
+}
+
+.button-quantity {
+  font-size: 1.3rem;
+  margin: 0 0.4rem 0.5rem;
+}
