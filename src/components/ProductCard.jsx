@@ -10,7 +10,6 @@ class ProductCard extends React.Component {
         thumbnail,
         title,
         price,
-        available_quantity: avq,
         attributes,
       } } } } } = this.props;
     const { props: { location: { state: { product } } } } = this.props;

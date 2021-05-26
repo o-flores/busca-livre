@@ -16,9 +16,10 @@ class CartItem extends React.Component {
   handleOnclick = (operation, id) => {
     const { quantity } = this.state;
     if (operation === 'add') {
+      if (this.checkQuantity()) {
       this.setState((prevState) => ({
         quantity: prevState.quantity + 1,
-      }), () => this.updateTotalPrice(id));
+      }), () => this.updateTotalPrice(id))};
     } else if (quantity > 1) {
       this.setState((prevState) => ({
         quantity: prevState.quantity - 1,
@@ -38,6 +39,13 @@ class CartItem extends React.Component {
     });
   }
 
+  checkQuantity = () => {
+    const { quantity } = this.state;
+    const { product } = this.props;
+    const { available_quantity } = product;
+    if (quantity + 1 <= available_quantity) return true;
+  }
+
   render() {
     const { product, deleteItem } = this.props;
     const { title, price, thumbnail, id } = product;
@@ -55,7 +63,7 @@ class CartItem extends React.Component {
               type="button"
             >
             </FaMinus>
-            <p>{quantity}</p>
+            <p>{ quantity }</p>
             <FaPlus
               className='button-quantity'
               onClick={() => this.handleOnclick('add', id)}
