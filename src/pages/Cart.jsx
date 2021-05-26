@@ -1,6 +1,7 @@
 import React from 'react';
 import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
+import '../styles/cart.css'
 import * as storageFunction from '../services/localStorage';
 
 class Cart extends React.Component {
@@ -8,7 +9,6 @@ class Cart extends React.Component {
     super();
     this.state = {
       products: [],
-      storage: false,
       totalPrice: 0,
     };
   }
@@ -19,9 +19,6 @@ class Cart extends React.Component {
 
   getFromLocalStorage = () => {
     const products = storageFunction.getProductsFromStorage();
-    if (products.length > 0) {
-      this.setState({ storage: true });
-    }
     this.setState({
       products,
     });
@@ -40,19 +37,28 @@ class Cart extends React.Component {
     this.sumPrices(products);
   }
 
+  deleteItem = (id) => {
+    const products = storageFunction.deleteItem(id);
+    this.setState({ products })
+    this.sumPrices(products);
+  }
+
   render() {
-    const { storage, products, totalPrice } = this.state;
+    const { products, totalPrice } = this.state;
     return (
       <div>
-        {!storage && <EmptyCart />}
-        { storage && products.map((product) => (
+        {products.length === 0 && <EmptyCart />}
+        { products.length > 0 && products.map((product) => (
           <CartItem
+            deleteItem={ this.deleteItem }
             key={ product.id }
             product={ product }
             onChange={ this.handleOnChange }
           />
         )) }
-        {products.length > 0 && <p>{`Preço total: ${totalPrice} R$`}</p>}
+        <div className='total-price-container'>
+          {products.length > 0 && <b><p>{`Preço total: ${totalPrice} R$`}</p></b>}
+        </div>
       </div>
     );
   }

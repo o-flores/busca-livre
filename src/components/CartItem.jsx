@@ -39,7 +39,7 @@ class CartItem extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, deleteItem } = this.props;
     const { title, price, thumbnail, id } = product;
     const { quantity } = this.state;
     return (
@@ -63,9 +63,10 @@ class CartItem extends React.Component {
             >
             </FaPlus>
           </div>
-          <FaTrash />
+          <FaTrash
+          onClick={ () => deleteItem(id) }
+          />
         </div>
-        
       </div>
 
     );

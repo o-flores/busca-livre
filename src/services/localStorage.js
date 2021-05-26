@@ -8,3 +8,10 @@ export function saveProductsOnStorage(newProduct) {
   const newProducts = [...products, newProduct];
   localStorage.setItem('products', JSON.stringify(newProducts));
 }
+
+export function deleteItem(id) {
+  const products = getProductsFromStorage();
+  const newProducts = products.filter((product) => product.id !== id);
+  localStorage.setItem('products', JSON.stringify(newProducts));
+  return newProducts;
+}
