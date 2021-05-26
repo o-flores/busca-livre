@@ -1,4 +1,12 @@
 header {
-  background-color: beige;
+  background-color: #9F75FF;
   padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: #494D4B;
+  text-decoration: none;
+  font-size: 1.5rem;
 }

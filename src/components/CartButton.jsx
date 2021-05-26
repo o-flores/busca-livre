@@ -6,7 +6,7 @@ import '../styles/cartbutton.css'
 class CartButton extends React.Component {
   render() {
     return (
-      <Link to="/cart" data-testid="shopping-cart-button">
+      <Link to="/cart">
         <span id='cart'><FaShoppingCart /></span>
       </Link>
     );
