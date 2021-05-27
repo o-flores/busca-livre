@@ -1,12 +1,30 @@
 header {
-  background-color: #9F75FF;
-  padding: 3rem;
+  background-color: white;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header a {
   color: #494D4B;
   text-decoration: none;
   font-size: 1.5rem;
+}
+
+header .right-container {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+header .right-container span {
+  color: #494D4B;
+  margin-right: 0.1rem;
+}
+
+header .right-container .sign-in {
+  color: #494D4B;
+  font-size: 2rem;
+  margin: 0 0.8rem;
 }
