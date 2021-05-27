@@ -7,7 +7,7 @@ class CartButton extends React.Component {
   render() {
     return (
       <Link to="/cart">
-        <span id='cart'><FiShoppingCart /></span>
+        <FiShoppingCart id='cart'/>
       </Link>
     );
   }
