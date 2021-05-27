@@ -5,20 +5,21 @@
 
 #search-div {
   margin: 1rem 0;
-  border: 1px solid #494D4B;
   width: fit-content;
   display: flex;
 }
 
 input {
   padding: 0.8rem 0.2rem;
+  background-color: #F7F8FA;
   border: none;
+  border-bottom: 1px solid #494D4B;
 }
 
 .search-button {
   padding: 0 0.5rem;
   font-size: 1.5rem;
-  background-color: #808080;
+  background-color: #F7F8FA;
   border: none;
   cursor: pointer;
 }

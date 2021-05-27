@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
             value={value}
             type="text"
             onChange={onChange}
-            placeholder='Digite um produto'
+            placeholder='buscar'
           />
           <button className='search-button' type="button" onClick={onClick}>
             <FaSearch />
