@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/busca-livre/static/css/main.805670fa.chunk.css",
+    "main.js": "/busca-livre/static/js/main.a9ad5c5d.chunk.js",
+    "main.js.map": "/busca-livre/static/js/main.a9ad5c5d.chunk.js.map",
+    "runtime-main.js": "/busca-livre/static/js/runtime-main.506bb60c.js",
+    "runtime-main.js.map": "/busca-livre/static/js/runtime-main.506bb60c.js.map",
+    "static/js/2.95df6c41.chunk.js": "/busca-livre/static/js/2.95df6c41.chunk.js",
+    "static/js/2.95df6c41.chunk.js.map": "/busca-livre/static/js/2.95df6c41.chunk.js.map",
+    "index.html": "/busca-livre/index.html",
+    "precache-manifest.2c3c85e1538b19ba9aa91a8ca6d63063.js": "/busca-livre/precache-manifest.2c3c85e1538b19ba9aa91a8ca6d63063.js",
+    "service-worker.js": "/busca-livre/service-worker.js",
+    "static/css/main.805670fa.chunk.css.map": "/busca-livre/static/css/main.805670fa.chunk.css.map",
+    "static/js/2.95df6c41.chunk.js.LICENSE.txt": "/busca-livre/static/js/2.95df6c41.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.506bb60c.js",
+    "static/js/2.95df6c41.chunk.js",
+    "static/css/main.805670fa.chunk.css",
+    "static/js/main.a9ad5c5d.chunk.js"
+  ]
+}
