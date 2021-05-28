@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/addtocart.css'
+import '../styles/addtocart.css';
+import * as storage from '../services/localStorage';
 
 class AddToCart extends Component {
+  handleLocalStorage = () => {
+    const { product } = this.props;
+    storage.saveProductsOnStorage(product);
+  }
+
   render() {
     return (
       <div className='button-container'>
