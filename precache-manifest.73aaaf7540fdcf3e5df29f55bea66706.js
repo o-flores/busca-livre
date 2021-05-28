@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29bca8f153fde226988cf91cd6ac1a82",
+    "revision": "3da4d88d0fcbad7568a883943e4ab076",
     "url": "/busca-livre/index.html"
   },
   {
-    "revision": "e18556ab5fc282f17448",
+    "revision": "aa990f924e6b7befd315",
     "url": "/busca-livre/static/css/main.805670fa.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/busca-livre/static/js/2.95df6c41.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e18556ab5fc282f17448",
-    "url": "/busca-livre/static/js/main.a9ad5c5d.chunk.js"
+    "revision": "aa990f924e6b7befd315",
+    "url": "/busca-livre/static/js/main.7d006f6a.chunk.js"
   },
   {
     "revision": "8351a5600f50fa84d28b",
