@@ -11,7 +11,7 @@ class Header extends React.Component {
       <header>
         <div className='left-container'>
           <div className='logo'>
-            <a href='/'><b><span>Busca Livre</span></b></a>
+            <a href='/busca-livre'><b><span>Busca Livre</span></b></a>
           </div>
         </div>
         <nav className='right-container'>

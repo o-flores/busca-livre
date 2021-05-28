@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
       <Header/>
         <Switch>
-          <Route path="/" exact component={ Home } />
+          <Route path="/busca-livre" exact component={ Home } />
           <Route path="/cart" exact component={ Cart } />
           <Route
             path="/produto/:id"
