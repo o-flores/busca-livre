@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/addtocart.css';
-import * as storage from '../services/localStorage';
+import { connect } from 'react-redux';
+import { addToCart } from '../actions/index'
 
 class AddToCart extends Component {
-  handleLocalStorage = () => {
-    const { product } = this.props;
-    storage.saveProductsOnStorage(product);
+  saveProduct = () => {
+    const { product, add } = this.props;
+    add(product);
   }
 
   render() {
@@ -15,7 +16,7 @@ class AddToCart extends Component {
         <button
           type="button"
           id="button-add-to-cart"
-          onClick={ this.handleLocalStorage }
+          onClick={ this.saveProduct }
         >
           Adicione ao carrinho
         </button>
@@ -25,8 +26,12 @@ class AddToCart extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  add: (product) => dispatch(addToCart(product)),
+})
+
 AddToCart.propTypes = {
   products: PropTypes.object,
 }.isRequired;
 
-export default AddToCart;
+export default connect(null, mapDispatchToProps)(AddToCart);

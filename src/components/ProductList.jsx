@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/products.css';
+import AddToCart from './AddToCart';
 
 class ProductList extends React.Component {
   render() {
@@ -29,6 +30,7 @@ class ProductList extends React.Component {
               <p className='title'>{product.title}</p>
             </Link>
             <p className='price'>{`${product.price} R$`}</p>
+            <AddToCart product={ product }/>
           </div>
         ))}
       </div>
@@ -41,4 +43,4 @@ ProductList.propTypes = {
   isClicked: PropTypes.bool,
 }.isRequired;
 
-export default ProductList;
+export default (ProductList);
