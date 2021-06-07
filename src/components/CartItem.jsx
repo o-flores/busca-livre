@@ -29,18 +29,6 @@ class CartItem extends React.Component {
     }
   }
 
-  updateTotalPrice = (id) => {
-    const { onChange } = this.props;
-    const { product: { price } } = this.props;
-    const { quantity } = this.state;
-    this.setState({
-      totalPrice: price * quantity,
-    }, () => {
-      const { totalPrice } = this.state;
-      onChange(id, totalPrice);
-    });
-  }
-
   checkQuantity = () => {
     const { quantity } = this.state;
     const { product: { available_quantity } } = this.props;

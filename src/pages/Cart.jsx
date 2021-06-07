@@ -3,7 +3,8 @@ import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 import '../styles/cart.css'
 import * as storageFunction from '../services/localStorage';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { renderCart } from '../actions'
 
 class Cart extends React.Component {
   constructor() {
@@ -14,27 +15,8 @@ class Cart extends React.Component {
   }
 
   componentDidMount() {
-    this.getFromLocalStorage();
-  }
-
-  getFromLocalStorage = () => {
-    const products = storageFunction.getProductsFromStorage();
-    this.setState({
-      products,
-    });
-    this.sumPrices(products);
-  }
-
-  sumPrices = (products) => {
-    const totalPrice = products.reduce((acc, cur) => acc + cur.price, 0);
-    this.setState({ totalPrice });
-  }
-
-  handleOnChange = (id, totalPrice) => {
-    const products = storageFunction.getProductsFromStorage();
-    const productObject = products.find((product) => product.id === id);
-    productObject.price = totalPrice;
-    this.sumPrices(products);
+    const { cartPrice, products } = this.props;
+    cartPrice(products);
   }
 
   deleteItem = (id) => {
@@ -44,8 +26,7 @@ class Cart extends React.Component {
   }
 
   render() {
-    const { totalPrice } = this.state;
-    const { products } = this.props;
+    const { products, totalPrice } = this.props;
     return (
       <div>
         {products.length === 0 && <EmptyCart />}
@@ -65,8 +46,13 @@ class Cart extends React.Component {
   }
 }
 
-const mapStateToProps = ({ productsReducer: { products } }) => ({
+const mapStateToProps = ({ productsReducer: { products }, totalPriceReducer: { totalPrice } }) => ({
   products,
+  totalPrice,
 });
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) => ({
+  cartPrice: (products) => dispatch(renderCart(products)) 
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
