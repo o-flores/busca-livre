@@ -3,6 +3,7 @@ import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 import '../styles/cart.css'
 import * as storageFunction from '../services/localStorage';
+import { connect } from 'react-redux'
 
 class Cart extends React.Component {
   constructor() {
@@ -44,7 +45,8 @@ class Cart extends React.Component {
   }
 
   render() {
-    const { products, totalPrice } = this.state;
+    const { totalPrice } = this.state;
+    const { products } = this.props;
     return (
       <div>
         {products.length === 0 && <EmptyCart />}
@@ -64,4 +66,8 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+const mapStateToProps = ({ productsReducer: { products } }) => ({
+  products,
+});
+
+export default connect(mapStateToProps)(Cart);
