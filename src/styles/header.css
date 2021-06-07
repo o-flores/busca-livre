@@ -28,3 +28,13 @@ header .right-container .sign-in {
   font-size: 2rem;
   margin: 0 0.8rem;
 }
+
+header .right-container .products-counter-container {
+  margin: 0;
+  align-self: flex-start;
+}
+
+header .right-container .products-counter {
+  color: #494D4B;
+  font-size: 0.9rem;
+}

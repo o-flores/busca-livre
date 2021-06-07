@@ -6,18 +6,20 @@ export const addToCart = (payload) => ({
 
 
 export const ADD_QUANTITY_CART_ITEM = 'ADD_QUANTITY_CART_ITEM';
-export const DECREASE_QUANTITY_CART_ITEM = 'DECREASE_QUANTITY_CART_ITEM';
-export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
 export const addQuantity = (payload) => ({
   type: ADD_QUANTITY_CART_ITEM,
   payload,
 });
 
+
+export const DECREASE_QUANTITY_CART_ITEM = 'DECREASE_QUANTITY_CART_ITEM';
 export const decreaseQuantity = (payload) => ({
   type: DECREASE_QUANTITY_CART_ITEM,
   payload,
 });
 
+
+export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
 export const deleteCartItem = (payload) => ({
   type: DELETE_CART_ITEM,
   payload,

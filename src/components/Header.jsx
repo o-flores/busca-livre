@@ -1,12 +1,14 @@
 import React from 'react';
 import '../styles/header.css'
 import { Link } from 'react-router-dom';
-import CartButton from '../components/CartButton'
-import { MdPersonOutline } from 'react-icons/md'
-import { IoIosArrowDown } from 'react-icons/io'
+import CartButton from '../components/CartButton';
+import { MdPersonOutline } from 'react-icons/md';
+import { IoIosArrowDown } from 'react-icons/io';
+import { connect } from 'react-redux';
 
 class Header extends React.Component {
   render() {
+    const { products } = this.props;
     return (
       <header>
         <div className='left-container'>
@@ -19,12 +21,15 @@ class Header extends React.Component {
           <IoIosArrowDown/>
           <Link to='/signup'><MdPersonOutline className='sign-in' /></Link>
           <CartButton />
-        </nav>
-        
-        
+          <span className='products-counter-container'>{products.length > 0 && <span className='products-counter'>{products.length}</span>}</span>
+        </nav>    
       </header>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = ({ productsReducer: { products } }) => ({
+  products,
+})
+
+export default connect(mapStateToProps)(Header);
