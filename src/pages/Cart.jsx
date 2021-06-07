@@ -2,9 +2,8 @@ import React from 'react';
 import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 import '../styles/cart.css'
-import * as storageFunction from '../services/localStorage';
 import { connect } from 'react-redux';
-import { renderCart } from '../actions'
+import { updateCartPrice } from '../actions'
 
 class Cart extends React.Component {
   constructor() {
@@ -19,10 +18,9 @@ class Cart extends React.Component {
     cartPrice(products);
   }
 
-  deleteItem = (id) => {
-    const products = storageFunction.deleteItem(id);
-    this.setState({ products })
-    this.sumPrices(products);
+  componentDidUpdate() {
+    const { cartPrice, products } = this.props;
+    cartPrice(products);
   }
 
   render() {
@@ -36,6 +34,7 @@ class Cart extends React.Component {
             key={ product.id }
             product={ product }
             onChange={ this.handleOnChange }
+            itemQuantity={ product.quantity }
           />
         )) }
         <div className='total-price-container'>
@@ -52,7 +51,7 @@ const mapStateToProps = ({ productsReducer: { products }, totalPriceReducer: { t
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  cartPrice: (products) => dispatch(renderCart(products)) 
+  cartPrice: (products) => dispatch(updateCartPrice(products)) 
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

@@ -7,6 +7,7 @@ import { addToCart } from '../actions/index'
 class AddToCart extends Component {
   saveProduct = () => {
     const { product, add } = this.props;
+    product.quantity = 1;
     add(product);
   }
 
