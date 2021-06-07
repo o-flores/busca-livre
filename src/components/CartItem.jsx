@@ -2,28 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/cartItem.css'
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
+import { connect } from 'react-redux';
+import { addQuantity, decreaseQuantity } from '../actions'
 
 class CartItem extends React.Component {
-  constructor(props) {
-    super(props);
-    const { product: { price } } = this.props;
+  constructor() {
+    super();
     this.state = {
       quantity: 1,
-      totalPrice: price,
     };
   }
 
-  handleOnclick = (operation, id) => {
+  handleOnclick = (operation, product) => {
     const { quantity } = this.state;
+    const { add, decrease } = this.props;
     if (operation === 'add') {
       if (this.checkQuantity()) {
-      this.setState((prevState) => ({
-        quantity: prevState.quantity + 1,
-      }), () => this.updateTotalPrice(id))};
+        this.setState((prevState) => ({
+          quantity: prevState.quantity + 1,
+        }), () => add(product));
+      }
     } else if (quantity > 1) {
       this.setState((prevState) => ({
         quantity: prevState.quantity - 1,
-      }), () => this.updateTotalPrice(id));
+      }), () => decrease(product));
     }
   }
 
@@ -41,8 +43,7 @@ class CartItem extends React.Component {
 
   checkQuantity = () => {
     const { quantity } = this.state;
-    const { product } = this.props;
-    const { available_quantity } = product;
+    const { product: { available_quantity } } = this.props;
     if (quantity + 1 <= available_quantity) return true;
   }
 
@@ -59,20 +60,20 @@ class CartItem extends React.Component {
           <div className='cart-item-quantity'>
             <FaMinus
               className='button-quantity'
-              onClick={() => this.handleOnclick('sub', id)}
+              onClick={() => this.handleOnclick('sub', product)}
               type="button"
             >
             </FaMinus>
-            <p>{ quantity }</p>
+            <p>{quantity}</p>
             <FaPlus
               className='button-quantity'
-              onClick={() => this.handleOnclick('add', id)}
+              onClick={() => this.handleOnclick('add', product)}
               type="button"
             >
             </FaPlus>
           </div>
           <FaTrash
-          onClick={ () => deleteItem(id) }
+            onClick={() => deleteItem(id)}
           />
         </div>
       </div>
@@ -81,8 +82,13 @@ class CartItem extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  add: (product) => dispatch(addQuantity(product)),
+  decrease: (product) => dispatch(decreaseQuantity(product)),
+});
+
 CartItem.propTypes = {
   product: PropTypes.object,
 }.isRequired;
 
-export default CartItem;
+export default connect(null, mapDispatchToProps)(CartItem);

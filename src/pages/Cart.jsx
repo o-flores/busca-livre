@@ -9,7 +9,6 @@ class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
-      products: [],
       totalPrice: 0,
     };
   }
