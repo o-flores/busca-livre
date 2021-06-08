@@ -1,30 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as api from '../services/api';
-import '../styles/categories.css'
+import '../styles/categories.css';
+import { connect } from 'react-redux';
+import { getCategoriesListThunk } from '../actions';
 
 class Categories extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: [],
-    };
-    this.handleCategories = this.handleCategories.bind(this);
-  }
 
   componentDidMount() {
-    this.handleCategories();
+    const { getCategories } = this.props;
+    getCategories();
   }
 
-  async handleCategories() {
-    api.getCategories().then((data) => {
-      this.setState({ categories: data });
-    });
-  }
 
   render() {
-    const { categories } = this.state;
-    const { onClick } = this.props;
+    const { onClick, categories } = this.props;
     return (
       <div>
         <ol className="categories-list">
@@ -47,8 +36,19 @@ class Categories extends React.Component {
   }
 }
 
+const mapStateToProps = ({categoriesReducer: { categories, error }}) => ({
+  categories,
+  error,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getCategories: () => dispatch(getCategoriesListThunk())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+
+
 Categories.propTypes = {
   onClick: PropTypes.func,
 }.isRequired;
-
-export default Categories;

@@ -1,3 +1,5 @@
+import { getCategories } from '../services/api';
+
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const addToCart = (payload) => ({
   type: ADD_PRODUCT_TO_CART,
@@ -31,3 +33,26 @@ export const updateCartPrice = (payload) => ({
   type: UPDATE_CART_PRICE,
   payload,
 })
+
+export const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+export const GET_CATEGORIES_ERROR = 'GET_CATEGORIES_ERROR';
+
+export const getCategoriesListsSuccess = (payload) => ({
+  type: GET_CATEGORIES_SUCCESS,
+  payload,
+});
+
+export const getCategoriesListError = (payload) => ({
+  type: GET_CATEGORIES_ERROR,
+  payload,
+});
+
+export const getCategoriesListThunk = () => async (dispatch) => {
+  try {
+    const data = await getCategories();
+    dispatch(getCategoriesListsSuccess(data));
+  }
+  catch (error) {
+    dispatch(getCategoriesListError(error));
+  }
+};
