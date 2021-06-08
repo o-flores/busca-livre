@@ -1,7 +1,7 @@
 import { GET_PRODUCTS_LIST,GET_PRODUCTS_LIST_SUCCESS, GET_PRODUCTS_LIST_ERROR } from '../actions';
 
 const INITIAL_STATE = {
-  products: [],
+  products: false,
   error: null,
   loading: false,
 };

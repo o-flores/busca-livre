@@ -71,19 +71,22 @@ export const getProductsList = () => ({
   type: GET_PRODUCTS_LIST,
 });
 
-export const getProductsListSuccess = (payload) => ({
-  type: GET_PRODUCTS_LIST_SUCCESS,
-  payload,
-});
-
+export const getProductsListSuccess = (payload) => {
+  if(payload.results.length === 0) {
+    payload.results = null;
+  }
+  return {
+    type: GET_PRODUCTS_LIST_SUCCESS,
+    payload,  
+  }
+  
+};
 export const getProductsListError = (payload) => ({
   type: GET_PRODUCTS_LIST_ERROR,
   payload,
 });
 
 export const getProductsListThunk = ({categoryId, query}) => async (dispatch) => {
-  console.log(categoryId);
-  console.log(query);
   dispatch(getProductsList());
   try {
     const data = await getProductsFromCategoryAndQuery(categoryId, query);
