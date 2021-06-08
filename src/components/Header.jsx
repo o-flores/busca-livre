@@ -28,7 +28,7 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = ({ productsReducer: { products } }) => ({
+const mapStateToProps = ({ cartReducer: { products } }) => ({
   products,
 })
 

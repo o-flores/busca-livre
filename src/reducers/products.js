@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   products: [],
 };
 
-const productsReducer = (state = INITIAL_STATE, action) => {
+const cartReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case ADD_PRODUCT_TO_CART:
       return {
@@ -50,4 +50,4 @@ const productsReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default productsReducer;
+export default cartReducer;
