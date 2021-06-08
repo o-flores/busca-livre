@@ -45,7 +45,7 @@ class Cart extends React.Component {
   }
 }
 
-const mapStateToProps = ({ productsReducer: { products }, totalPriceReducer: { totalPrice } }) => ({
+const mapStateToProps = ({ cartReducer: { products }, totalPriceReducer: { totalPrice } }) => ({
   products,
   totalPrice,
 });

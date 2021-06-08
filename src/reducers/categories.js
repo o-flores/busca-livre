@@ -1,8 +1,9 @@
-import { GET_CATEGORIES_SUCCESS, GET_CATEGORIES_ERROR } from '../actions';
+import { GET_CATEGORIES_SUCCESS, GET_CATEGORIES_ERROR, SELECTED_CATEGORY } from '../actions';
 
 const INITIAL_STATE = {
   categories: [],
-  error: null
+  error: null,
+  categoryId: '',
 };
 
 const categoriesReducer = (state = INITIAL_STATE, action) => {
@@ -16,6 +17,11 @@ const categoriesReducer = (state = INITIAL_STATE, action) => {
         return {
           ...state,
           error: action.payload
+        }
+      case SELECTED_CATEGORY: 
+        return {
+          ...state,
+          categoryId: action.payload,
         }
     default:
       return state;

@@ -1,4 +1,4 @@
-import { getCategories } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const addToCart = (payload) => ({
@@ -36,6 +36,7 @@ export const updateCartPrice = (payload) => ({
 
 export const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
 export const GET_CATEGORIES_ERROR = 'GET_CATEGORIES_ERROR';
+export const SELECTED_CATEGORY = 'SELECTED_CATEGORY';
 
 export const getCategoriesListsSuccess = (payload) => ({
   type: GET_CATEGORIES_SUCCESS,
@@ -54,5 +55,41 @@ export const getCategoriesListThunk = () => async (dispatch) => {
   }
   catch (error) {
     dispatch(getCategoriesListError(error));
+  }
+};
+
+export const getSelectedCategory = (payload) => ({
+  type: SELECTED_CATEGORY,
+  payload,
+});
+
+export const GET_PRODUCTS_LIST = 'GET_PRODUCTS_LIST';
+export const GET_PRODUCTS_LIST_SUCCESS = 'GET_PRODUCTS_LIST_SUCCESS';
+export const GET_PRODUCTS_LIST_ERROR = 'GET_PRODUCTS_LIST_ERROR';
+
+export const getProductsList = () => ({
+  type: GET_PRODUCTS_LIST,
+});
+
+export const getProductsListSuccess = (payload) => ({
+  type: GET_PRODUCTS_LIST_SUCCESS,
+  payload,
+});
+
+export const getProductsListError = (payload) => ({
+  type: GET_PRODUCTS_LIST_ERROR,
+  payload,
+});
+
+export const getProductsListThunk = ({categoryId, query}) => async (dispatch) => {
+  console.log(categoryId);
+  console.log(query);
+  dispatch(getProductsList());
+  try {
+    const data = await getProductsFromCategoryAndQuery(categoryId, query);
+    dispatch(getProductsListSuccess(data));
+  }
+  catch (error) {
+    dispatch(getProductsListError(error));
   }
 };

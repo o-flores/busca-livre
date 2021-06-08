@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/categories.css';
 import { connect } from 'react-redux';
-import { getCategoriesListThunk } from '../actions';
+import { getCategoriesListThunk, getSelectedCategory } from '../actions';
 
 class Categories extends React.Component {
 
@@ -11,9 +11,8 @@ class Categories extends React.Component {
     getCategories();
   }
 
-
   render() {
-    const { onClick, categories } = this.props;
+    const { categories, getSelectedCategory } = this.props;
     return (
       <div>
         <ol className="categories-list">
@@ -25,7 +24,7 @@ class Categories extends React.Component {
                 type="radio"
                 id={ category.id }
                 name="categorias"
-                onClick={ onClick }
+                onClick={ () => getSelectedCategory(category.id) }
               />
               {category.name}
             </li>))}
@@ -42,7 +41,8 @@ const mapStateToProps = ({categoriesReducer: { categories, error }}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCategories: () => dispatch(getCategoriesListThunk())
+  getCategories: () => dispatch(getCategoriesListThunk()),
+  getSelectedCategory: (id) => dispatch(getSelectedCategory(id))
 })
 
 

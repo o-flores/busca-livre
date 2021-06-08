@@ -2,50 +2,50 @@ import React from 'react';
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
 import Loading from '../components/Loading';
-import * as api from '../services/api';
 import ProductList from '../components/ProductList';
+import { connect } from 'react-redux';
+import { getProductsListThunk } from '../actions';
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
-      input: '',
-      products: [],
-      radio: '',
+      query: '',
     };
   }
 
-  handleOnChange = (event) => {
-    const { value } = event.target;
-    this.setState({ input: value });
+  handleOnChange = ({ target: { value }}) => {
+    this.setState({ query: value });
   }
 
   handleClick = () => {
-    this.handleProductsList();
+    const { getProductsList, categoryId } = this.props;
+    const { query } = this.state;
+    getProductsList({ categoryId, query })
   }
 
-  handleProductsList = () => {
-    const { input, radio } = this.state;
-    this.setState({ loading: true, products: [] }, async () => {
-      const { results } = await api.getProductsFromCategoryAndQuery(radio, input);
-      if (results.length === 0) this.setState({ products: 'none' });
-      else this.setState({ products: results });
-      this.setState({ loading: false });
-    });
-  }
+  // handleProductsList = () => {
+  //   const { query, categoryId } = this.state;
+  //   this.setState({ loading: true, products: [] }, async () => {
+  //     const { results } = await api.getProductsFromCategoryAndQuery(categoryId, query);
+  //     if (results.length === 0) this.setState({ products: 'none' });
+  //     else this.setState({ products: results });
+  //     this.setState({ loading: false });
+  //   });
+  // }
 
-  handleRadio = (event) => {
-    const { id } = event.target;
-    this.setState({ radio: id }, () => this.handleProductsList());
-  }
+  // handleRadio = (event) => {
+  //   const { id } = event.target;
+  //   this.setState({ categoryId: id }, () => this.handleProductsList());
+  // }
 
   render() {
-    const { products, loading, input } = this.state;
+    const { query } = this.state;
+    const { products, loading } = this.props;
     return (
       <>
         <SearchBar
-          value={ input }
+          value={ query }
           onClick={ this.handleClick }
           onChange={ this.handleOnChange }
         />
@@ -57,4 +57,14 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = ({ProductsListReducer: { products, loading }, categoriesReducer: { categoryId }}) => ({
+  products,
+  loading,
+  categoryId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getProductsList: (payload) => dispatch(getProductsListThunk(payload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
