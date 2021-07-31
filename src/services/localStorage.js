@@ -9,7 +9,7 @@ export function saveProductsOnStorage(newProduct) {
   localStorage.setItem('products', JSON.stringify(newProducts));
 }
 
-export function deleteItem(id) {
+export function deleteCartItemFromLocalStorage(id) {
   const products = getProductsFromStorage();
   const newProducts = products.filter((product) => product.id !== id);
   localStorage.setItem('products', JSON.stringify(newProducts));
