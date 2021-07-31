@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
 import Header from './components/Header';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
             path="/produto/:id"
             render={ (props) => <ProductDetails { ...props } /> }
           />
+          <Route
+            path="/signup"
+            render={ (props) => <SignIn { ...props } />}
+          />
+          
         </Switch>
       </BrowserRouter>
     </div>
