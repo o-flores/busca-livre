@@ -44,7 +44,7 @@ class Cart extends React.Component {
           />
         )) }
         <div className='total-price-container'>
-          {products.length > 0 && <b><p>{`Preço total: ${totalPrice} R$`}</p></b>}
+          {products.length > 0 && <b><p>{`Preço total: ${parseFloat(totalPrice).toFixed(2)} R$`}</p></b>}
         </div>
       </div>
     );
