@@ -5,10 +5,20 @@ import CartButton from '../components/CartButton';
 import { MdPersonOutline } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import { connect } from 'react-redux';
+import { getProductsFromStorage } from '../services/localStorage';
+import { refreshCart } from '../actions';
 
 class Header extends React.Component {
+
+  componentDidMount() {
+    const { refreshCart } = this.props;
+    const newProducts = getProductsFromStorage();
+    refreshCart(newProducts)
+  }
+
   render() {
     const { products } = this.props;
+    console.log(products);
     return (
       <header>
         <div className='left-container'>
@@ -32,4 +42,8 @@ const mapStateToProps = ({ cartReducer: { products } }) => ({
   products,
 })
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  refreshCart: (products) => dispatch(refreshCart(products)) 
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
