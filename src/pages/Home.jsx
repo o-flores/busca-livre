@@ -24,21 +24,6 @@ class Home extends React.Component {
     getProductsList({ categoryId, query })
   }
 
-  // handleProductsList = () => {
-  //   const { query, categoryId } = this.state;
-  //   this.setState({ loading: true, products: [] }, async () => {
-  //     const { results } = await api.getProductsFromCategoryAndQuery(categoryId, query);
-  //     if (results.length === 0) this.setState({ products: 'none' });
-  //     else this.setState({ products: results });
-  //     this.setState({ loading: false });
-  //   });
-  // }
-
-  // handleRadio = (event) => {
-  //   const { id } = event.target;
-  //   this.setState({ categoryId: id }, () => this.handleProductsList());
-  // }
-
   render() {
     const { query } = this.state;
     const { products, loading } = this.props;
