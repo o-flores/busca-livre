@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/addtocart.css';
 import { connect } from 'react-redux';
-import { addToCart } from '../actions/index'
+import { addToCart } from '../actions/index';
+import { saveProductsOnStorage } from '../services/localStorage';
 
 class AddToCart extends Component {
   saveProduct = () => {
     const { product, add } = this.props;
     product.quantity = 1;
     add(product);
+    saveProductsOnStorage(product);
   }
 
   render() {
