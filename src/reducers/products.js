@@ -1,10 +1,20 @@
-import { ADD_PRODUCT_TO_CART, DELETE_CART_ITEM, ADD_QUANTITY_CART_ITEM, DECREASE_QUANTITY_CART_ITEM, } from '../actions';
+import { ADD_PRODUCT_TO_CART,
+  DELETE_CART_ITEM,
+  ADD_QUANTITY_CART_ITEM,
+  DECREASE_QUANTITY_CART_ITEM,
+  REFRESH_CART
+} from '../actions';
 const INITIAL_STATE = {
   products: [],
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
+    case REFRESH_CART:
+      return {
+        ...state,
+        products: action.payload,
+      }
     case ADD_PRODUCT_TO_CART:
       return {
         ...state,

@@ -6,6 +6,11 @@ export const addToCart = (payload) => ({
   payload,
 });
 
+export const REFRESH_CART =  'REFRESH_CART';
+export const refreshCart = (payload) => ({
+  type: REFRESH_CART,
+  payload,
+});
 
 export const ADD_QUANTITY_CART_ITEM = 'ADD_QUANTITY_CART_ITEM';
 export const addQuantity = (payload) => ({
