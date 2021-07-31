@@ -7,7 +7,7 @@ import AddToCart from './AddToCart';
 class ProductList extends React.Component {
   render() {
     const { products } = this.props;
-    if (products === null) return <p>Nenhum produto foi encontrado</p>;
+    if (products === null) return <h2 className="no-product">Nenhum produto foi encontrado</h2>;
     if (!products) return null;
     return (
       <div className="products-container">

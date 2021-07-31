@@ -1,3 +1,7 @@
+.no-product {
+  text-align: center;
+  margin-top: 2rem;
+}
 .products-container {
   display: flex;
   flex-wrap: wrap;
