@@ -4,6 +4,7 @@ import '../styles/cartItem.css'
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { addQuantity, decreaseQuantity, deleteCartItem } from '../actions'
+import { deleteCartItemFromLocalStorage } from '../services/localStorage';
 
 class CartItem extends React.Component {
 
@@ -23,8 +24,14 @@ class CartItem extends React.Component {
     if (itemQuantity + 1 <= available_quantity) return true;
   }
 
+  handleDeleteCartItem = (product) => {
+    const { deleteItem } = this.props;
+    deleteItem(product);
+    deleteCartItemFromLocalStorage(product.id);
+  }
+
   render() {
-    const { deleteItem, product, itemQuantity} = this.props;
+    const { product, itemQuantity} = this.props;
     const { title, price, thumbnail } = product;
     return (
       <div className='cart-item-container'>
@@ -48,7 +55,7 @@ class CartItem extends React.Component {
             </FaPlus>
           </div>
           <FaTrash
-            onClick={() => deleteItem(product)}
+            onClick={() => this.handleDeleteCartItem(product)}
           />
         </div>
       </div>
