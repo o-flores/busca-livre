@@ -3,6 +3,10 @@
   margin: 2rem;
 }
 
+.cart-item-container img {
+  width: 100px;
+}
+
 .cart-item-info{
   display: flex;
   flex-direction: column;
