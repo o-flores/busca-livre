@@ -101,3 +101,9 @@ export const getProductsListThunk = ({categoryId, query}) => async (dispatch) =>
     dispatch(getProductsListError(error));
   }
 };
+
+export const LOGIN = 'LOGIN';
+export const loginAction = (payload) => ({
+  type: LOGIN,
+  payload,
+})
