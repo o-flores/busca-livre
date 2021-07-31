@@ -18,7 +18,6 @@ class Header extends React.Component {
 
   render() {
     const { products } = this.props;
-    console.log(products);
     return (
       <header>
         <div className='left-container'>
