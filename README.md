@@ -8,6 +8,8 @@
   ### My main objectives by creating this app were:
     - Practice Redux and Redux-Thunk
     - Practice using and real and complex API
+  
+  Feel free to check it out at https://o-flores.github.io/busca-livre/
 </p>
 
 ## :nerd_face: What I learned?
