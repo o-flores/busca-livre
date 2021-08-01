@@ -4,14 +4,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
-import Header from './components/Header';
 import SignIn from './pages/SignIn';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Header/>
         <Switch>
           <Route path="/busca-livre" exact component={ Home } />
           <Route path="/cart" exact component={ Cart } />
