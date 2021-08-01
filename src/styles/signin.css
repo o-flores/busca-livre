@@ -1,0 +1,26 @@
+.logout-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.user-login-logout {
+  margin-top: 2rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background-color: #808080;
+  opacity: 0.85;
+}
+
+.user-login-logout:hover {
+  opacity: 1;
+}
+
+.login-form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
