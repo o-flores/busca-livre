@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import ProductList from '../components/ProductList';
 import { connect } from 'react-redux';
 import { getProductsListThunk } from '../actions';
+import Header from '../components/Header';
 
 class Home extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class Home extends React.Component {
     };
   }
 
-  handleOnChange = ({ target: { value }}) => {
+  handleOnChange = ({ target: { value } }) => {
     this.setState({ query: value });
   }
 
@@ -29,20 +30,21 @@ class Home extends React.Component {
     const { products, loading } = this.props;
     return (
       <>
+        <Header />
         <SearchBar
-          value={ query }
-          onClick={ this.handleClick }
-          onChange={ this.handleOnChange }
+          value={query}
+          onClick={this.handleClick}
+          onChange={this.handleOnChange}
         />
-        <Categories onClick={ this.handleRadio } />
-        { loading && <Loading /> }
-        <ProductList products={ products } />
+        <Categories onClick={this.handleRadio} />
+        {loading && <Loading />}
+        <ProductList products={products} />
       </>
     );
   }
 }
 
-const mapStateToProps = ({ProductsListReducer: { products, loading }, categoriesReducer: { categoryId }}) => ({
+const mapStateToProps = ({ ProductsListReducer: { products, loading }, categoriesReducer: { categoryId } }) => ({
   products,
   loading,
   categoryId,
