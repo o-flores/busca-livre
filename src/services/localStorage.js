@@ -15,3 +15,18 @@ export function deleteCartItemFromLocalStorage(id) {
   localStorage.setItem('products', JSON.stringify(newProducts));
   return newProducts;
 }
+
+export function saveUserToLocalStorage(user) {
+  localStorage.setItem('user', JSON.stringify(user));
+}
+
+export function getUserFromLocalStorage() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return user;
+}
+
+export function logout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('products');
+
+}
