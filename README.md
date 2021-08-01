@@ -9,6 +9,11 @@
     - Practice Redux and Redux-Thunk
     - Practice using and real and complex API
   
+  ### To take this app to the next level:
+    - Integrate with an auth service
+    - Create a checkout page to simulate payments
+    - Use Bootstrap or other CSS Framework
+  
   Feel free to check it out at https://o-flores.github.io/busca-livre/
 </p>
 
