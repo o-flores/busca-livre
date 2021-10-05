@@ -7,7 +7,7 @@
   
   ### My main objectives by creating this app were:
     - Practice Redux and Redux-Thunk
-    - Practice using and real and complex API
+    - Practice using a real and complex API
   
   ### To take this app to the next level:
     - Integrate with an auth service
